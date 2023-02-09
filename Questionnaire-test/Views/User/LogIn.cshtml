@@ -1,0 +1,33 @@
+﻿@model Questionnaire_test.Models.User
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="padding:15px;">
+ <h2>Log in</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "Login Failed, check details");
+        <div style="padding: 35px; background: white; height: auto; min-height: 100px; border: 1px solid #BABABA; width: 250px; border-radius: 5px; min-width: 10px;  align-items:center">
+            <fieldset>
+                <div class="editor-label">@Html.LabelFor(u => u.UserName)</div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(u => u.UserName)
+                    @Html.ValidationMessageFor(u => u.UserName)
+                </div>
+                <div class="editor-label">@Html.LabelFor(u => u.Password)</div>
+                <div class="editor-field">
+                    @Html.PasswordFor(u => u.Password)
+                    @Html.ValidationMessageFor(u => u.Password)
+                </div>
+                <br />
+                <div style="text-align: center">
+                    <input type="submit" value="Log In" />
+                    </div>
+            </fieldset>
+        </div>
+    }
+
+</div>
